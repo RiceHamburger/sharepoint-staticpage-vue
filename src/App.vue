@@ -30,10 +30,10 @@ export default defineComponent({
     // }
 
     const jobs = ref<Job[]>([
-      {title:'first test',location:'f0',salary:200,id:0},
-      {title:'first test1',location:'f1',salary:300,id:1},
-      {title:'first test2',location:'f2',salary:400,id:2},
-      {title:'first test3',location:'f3',salary:500,id:3},
+      {title:'first test',location:'b0',salary:200,id:0},
+      {title:'airst test1',location:'s1',salary:300,id:1},
+      {title:'birst test2',location:'dd2',salary:400,id:2},
+      {title:'cirst test3',location:'a3',salary:500,id:3},
     ])
 
     const order = ref<OrderTerm>('title')

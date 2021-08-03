@@ -1,28 +1,51 @@
 <template>
   <div class="app">
-    <p>{{name}}</p>
-    <button @click="changeName('Change')">b</button>
+    <button @click="handleClick('title')">order by title</button>
+    <button @click="handleClick('salary')">order by salary</button>
+    <button @click="handleClick('location')">order by location</button>
+    <JobList :jobs="jobs" :order="order"/>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-
+import { defineComponent,reactive,toRefs,ref } from 'vue';
+import JobList from './components/jobsList.vue'
+import Job from './types/job'
+import OrderTerm from './types/OrderTerm'
 
 export default defineComponent({
   name: 'App',
-  data(){
-    return{
-      name:'TEST',
-      age: 25 as number | string
+  components:{
+    JobList
+  },
+  setup() {
+    // const age = ref<number | string>(25)
+
+    // const state = reactive({
+    //   name:'TEST',
+    //   age: 25 as number | string
+    // })
+    // return{
+    //   ...toRefs(state)
+    // }
+
+    const jobs = ref<Job[]>([
+      {title:'first test',location:'f0',salary:200,id:0},
+      {title:'first test1',location:'f1',salary:300,id:1},
+      {title:'first test2',location:'f2',salary:400,id:2},
+      {title:'first test3',location:'f3',salary:500,id:3},
+    ])
+
+    const order = ref<OrderTerm>('title')
+
+    const handleClick = (term:OrderTerm) =>{
+      order.value = term
     }
-  },
-  components: {
-    
-  },
-  methods:{
-    changeName(name:string){
-      this.name = name;
+
+    return{
+      jobs,
+      handleClick,
+      order
     }
   }
 });

@@ -47,7 +47,13 @@ router.beforeEach((to: RouteLocationNormalized, from:RouteLocationNormalized, ne
   })[] = nearestWithMeta.meta.metaTags;
   
 
-    test.map((tagDef:Array<string>) => {
+    test.map((tagDef:{
+      name: string;
+      content: string;
+  } | {
+      property: string;
+      content: string;
+  }) => {
     const tag:HTMLMetaElement = document.createElement('meta');
 
     Object.keys(tagDef).forEach((key:string) => {

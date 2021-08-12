@@ -19,16 +19,6 @@ export default defineComponent({
     JobList
   },
   setup() {
-    // const age = ref<number | string>(25)
-
-    // const state = reactive({
-    //   name:'TEST',
-    //   age: 25 as number | string
-    // })
-    // return{
-    //   ...toRefs(state)
-    // }
-
     const jobs = ref<Job[]>([
       {title:'first test',location:'b0',salary:200,id:0},
       {title:'airst test1',location:'s1',salary:300,id:1},
@@ -47,6 +37,13 @@ export default defineComponent({
       handleClick,
       order
     }
+  },
+  head: {
+    title: function () {
+      return {
+        inner: "this.title"
+      }
+    },
   }
 });
 </script>

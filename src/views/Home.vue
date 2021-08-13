@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent,ref } from 'vue';
+import { defineComponent,ref,onMounted } from 'vue';
 import JobList from '@/components/jobsList.vue'
 import Job from '@/types/job'
 import OrderTerm from '@/types/OrderTerm'
@@ -19,6 +19,11 @@ export default defineComponent({
     JobList
   },
   setup() {
+    onMounted(() => {
+      document.title = "TODOアプリ 一覧画面";
+      // document.querySelector("meta[property='description']").setAttribute('content', "TODOアプリの一覧画面です。TODOのリストを確認できます。");
+    })
+
     const jobs = ref<Job[]>([
       {title:'first test',location:'b0',salary:200,id:0},
       {title:'airst test1',location:'s1',salary:300,id:1},
@@ -36,14 +41,7 @@ export default defineComponent({
       jobs,
       handleClick,
       order
-    }
-  },
-  head: {
-    title: function () {
-      return {
-        inner: "this.title"
       }
-    },
   }
 });
 </script>

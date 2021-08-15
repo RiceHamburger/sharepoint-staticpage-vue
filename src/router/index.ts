@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory,RouteRecordRaw,RouteLocationNormalized,NavigationGuardNext,RouteRecordNormalized } from 'vue-router'
+import { createRouter, createWebHistory,RouteRecordRaw,RouteLocationNormalized,NavigationGuardNext } from 'vue-router'
 import Home from '../views/Home.vue'
 
 

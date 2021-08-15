@@ -1,0 +1,124 @@
+/*****************************************************************
+ HEADER
+*****************************************************************/
+header {
+    position: relative;
+    margin: 0 auto 78px;
+    @include small-pad-width {
+      margin: 0 auto 54px;
+    }
+  
+    .slideshowContainer {
+      height: 512px;
+      overflow: hidden;
+      position: relative;
+      @include small-pad-width {
+        height: 284px;
+      }
+      .title {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        line-height: 1.5em;
+        color: $white;
+        z-index: 1;
+        @include small-pad-width {
+          font-size: 26px;
+        }
+      }
+      .mySlides {
+        display: none;
+      }
+      img {
+        vertical-align: middle;
+        @include portrait {
+          height: 100%;
+        }
+        @include landscape {
+          width: 100%;
+        }
+      }
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+  
+      .dotWrap {
+        position: absolute;
+        left: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        .dot {
+          height: 4px;
+          width: 4px;
+          margin: 12px 0;
+          background-color: $white;
+          transition: background-color 0.6s ease;
+          display: block;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  
+    .searchRow {
+      box-sizing: border-box;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: absolute;
+      bottom: -78px;
+      padding: 0 24px;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      @include small-pad-width {
+        bottom: -54px;
+        padding: 0 24px;
+      }
+  
+      .searchWrap {
+        box-sizing: border-box;
+        padding: 48px;
+        background-color: $white;
+        box-shadow: 0 0 10px 0 rgba(99, 115, 129, 0.5);
+        height: 156px;
+        margin: 0;
+        @include small-pad-width {
+          padding: 24px;
+          height: 108px;
+        }
+  
+        label {
+          margin: 0 0 3px 0;
+        }
+        form.search-form {
+          position: relative;
+          input[type="text"] {
+            width: calc(100% - 59px);
+            float: left;
+          }
+          &::before {
+            content: "";
+            display: block;
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            left: 11px;
+            top: 9px;
+            background-color: $light-blue-grey;
+            mask-image: url(~@/assets/img/icons/light/magnifying-glass.svg);
+            mask-size: cover;
+          }
+        }
+        button {
+          width: 59px;
+        }
+      }
+    }
+  }

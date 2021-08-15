@@ -1,0 +1,139 @@
+$header-pad-media:1290px;
+$pcs-media:769px;
+$phone-media:480px;
+
+$home-bg-size: 60%;
+$home-offset-y: 35%;
+
+// 色の共通変数
+$dark: #212b36;
+$ice-blue: #f5f6f6;
+$light-blue-grey: #c4cdd5;
+$red: #f00;
+$pale-salmon: #fab2b2;
+$battleship-grey: #637381;
+$black: #000;
+$white: #fff;
+
+// フォントの共通変数
+$NotoSan-JP: "Noto Sans JP", sans-serif;
+
+//keyframes
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// bg-set
+// =============================================================================
+@mixin bg-set($size, $offset-y) {
+	background-position: center $offset-y;
+	background-size: $size;
+	background-repeat: no-repeat;
+	background-color: #fff;
+}
+
+// =============================================================================
+// tablet margin-bottom responsive
+// =============================================================================
+@mixin tablet-margin-bottom($size) {
+	@media all and (max-width: $pcs-media) {
+		margin-bottom: $size !important;
+	}
+}
+
+// =============================================================================
+// sp margin-bottom responsive
+// =============================================================================
+@mixin small-pad-margin-bottom($size) {
+	@media all and (max-width: $phone-media) {
+		margin-bottom: $size !important;
+	}
+}
+
+// =============================================================================
+// tablet padding-top responsive
+// =============================================================================
+@mixin tablet-padding-top($size) {
+	@media all and (max-width: $pcs-media) {
+		padding-top: $size !important;
+	}
+}
+
+// =============================================================================
+// sp padding-top responsive
+// =============================================================================
+@mixin small-pad-padding-top($size) {
+	@media all and (max-width: $phone-media) {
+		padding-top: $size !important;
+	}
+}
+
+// =============================================================================
+// tablet
+// =============================================================================
+
+@mixin tablet-width() {
+	@media all and (max-width: $pcs-media) {
+		@content;
+	}
+}
+
+// =============================================================================
+// header-tablet
+// =============================================================================
+
+@mixin header-tablet-width() {
+	@media all and (max-width: $header-pad-media) {
+		@content;
+	}
+}
+
+// =============================================================================
+// SP
+// =============================================================================
+
+@mixin small-pad-width() {
+	@media all and (max-width: $phone-media) {
+		@content;
+  	}
+}
+
+// =============================================================================
+// portrait
+// =============================================================================
+
+@mixin portrait() {
+	@media screen and (orientation:portrait) {
+		@content;
+  	}
+}
+
+// =============================================================================
+// landscape
+// =============================================================================
+
+@mixin landscape() {
+	@media screen and (orientation:landscape) {
+		@content;
+  	}
+}

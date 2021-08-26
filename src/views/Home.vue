@@ -1,5 +1,8 @@
 <template>
   <div>
+    <Notice />
+    <News />
+    <Article />
     <button @click="handleClick('title')">order by title</button>
     <button @click="handleClick('salary')">order by salary</button>
     <button @click="handleClick('location')">order by location</button>
@@ -10,13 +13,19 @@
 <script lang="ts">
 import { defineComponent,ref } from 'vue';
 import JobList from '@/components/jobsList.vue'
+import Notice from '@/components/Notice.vue'
+import News from '@/components/News.vue'
+import Article from '@/components/Article.vue'
 import Job from '@/types/job'
 import OrderTerm from '@/types/OrderTerm'
 
 export default defineComponent({
   name: 'Home',
   components:{
-    JobList
+    JobList,
+    Notice,
+    News,
+    Article
   },
   setup() {
 

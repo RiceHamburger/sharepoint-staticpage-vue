@@ -2,6 +2,7 @@
   <div class="app">
     <Header/>
     <router-view/>
+    test
   </div>
 </template>
 
